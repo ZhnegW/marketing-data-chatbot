@@ -28,12 +28,13 @@ An AI-powered data analysis tool that translates natural language business quest
 Clone the repository:
 ```bash
 git clone [https://github.com/YOUR_GITHUB_USERNAME/marketing-data-chatbot.git](https://github.com/YOUR_GITHUB_USERNAME/marketing-data-chatbot.git)
-cd marketing-data-chatbot```
+cd marketing-data-chatbot
+```
 
 Install dependencies:
-
 ```bash
-pip install -r requirements.txt ```
+pip install -r requirements.txt
+```
 
 ### 3. Configuration
 Create a .env file in the root directory:
@@ -43,20 +44,18 @@ OPENAI_API_KEY=your_actual_api_key_here
 
 ### 4. Run the Bot
 ```bash
-python bot_cli.py```
+python bot_cli.py
+```
 
 ## 📊 Example Queries
 - **Global Query**: “Show me total revenue for all years”
-
 - **Multi-dimensional Analysis**: “Which media categories had the highest profit in Q2 2023?”
-
 - **Contextual Follow-up**: “Now only for Product = 2”
-
 - **Trend Analysis**: “Revenue and cost trend by month”
 
 ## 📂 Project Structure
-- ```bot_cli.py```: The interactive command-line interface.
-- ```llm_parser.py```: Handles LLM communication and recursive JSON Schema strictness.
-- ```executor.py```: The SQL engine. Translates QuerySpec into DuckDB SQL.
-- ```schema.py```: Pydantic models defining the "Source of Truth" for data structures.
-- ```state.py```: Manages the application state and applies "patches" for multi-turn logic.
+- `bot_cli.py`: The interactive command-line interface.
+- `llm_parser.py`: Handles LLM communication and recursive JSON Schema strictness.
+- `executor.py`: The SQL engine. Translates QuerySpec into DuckDB SQL.
+- `schema.py`: Pydantic models defining the "Source of Truth" for data structures.
+- `state.py`: Manages the application state and applies "patches" for multi-turn logic.
