@@ -1,4 +1,4 @@
-# AI Marketing Data Analyst: Text-to-SQL Chatbot
+# AI-Powered Marketing Data Chatbot
 
 An AI-powered data analysis tool that translates natural language business questions into optimized SQL queries. Built with **GPT-4o-mini**, **DuckDB**, and **Pydantic V2**, this bot specializes in analyzing marketing datasets with high precision and conversational context.
 
@@ -27,7 +27,7 @@ An AI-powered data analysis tool that translates natural language business quest
 ### 2. Installation
 Clone the repository:
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/marketing-data-chatbot.git](https://github.com/YOUR_GITHUB_USERNAME/marketing-data-chatbot.git)
+git clone [https://github.com/ZhnegW/marketing-data-chatbot.git]
 cd marketing-data-chatbot
 ```
 
