@@ -33,20 +33,13 @@ def _df_context(df: pd.DataFrame) -> str:
     )
 
 
-# 定义一个顶层模型，专门用于生成正确的 Schema 结构
 class MarketingResponse(BaseModel):
     kind: Literal["query", "patch"]
     query_spec: Optional[QuerySpec] = None
     patch_spec: Optional[PatchSpec] = None
 
-# 你的 _wrapper_json_schema 修改如下：
 
 def _wrapper_json_schema() -> dict:
-    # 1. 使用 Pydantic 生成原始 Schema
-    # (假设你用了我之前推荐的 MarketingResponse Wrapper 类，或者你原来的写法)
-    # 这里以你原来的写法为例，但建议用 Wrapper 类会更稳
-    
-    # 临时定义一个总包 Wrapper，让 Pydantic 处理 $ref 引用问题（这很重要！）
     class Wrapper(BaseModel):
         kind: str
         query_spec: Optional[QuerySpec] = None
@@ -54,10 +47,8 @@ def _wrapper_json_schema() -> dict:
 
     raw_schema = Wrapper.model_json_schema()
     
-    # 2. 清理不需要的顶层字段
     raw_schema.pop("title", None)
 
-    # 3. 强力修正 Schema 以符合 Strict 模式
     final_schema = enforce_strict_constraints(raw_schema)
 
     return {
@@ -73,7 +64,6 @@ def _system_prompt(df: pd.DataFrame, last_spec: Optional[QuerySpec]) -> str:
 
     last = ""
     if last_spec is not None:
-        # 先把 Pydantic 模型转成 dict，再用 json 库转字符串
         last = f"\nPrevious QuerySpec (for follow-ups):\n{json.dumps(last_spec.model_dump(), ensure_ascii=False)}\n"
 
     return f"""
